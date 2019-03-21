@@ -1,8 +1,8 @@
 ### Overview
 This repository contains a PyTorch implementation of several variational autencoders based on normalizing flows:
-    * [Variational Inference with Normalizing Flows](https://arxiv.org/pdf/1505.05770.pdf)
-    * [Improved Variational Inference with Inverse Autoregressive Flow](https://arxiv.org/pdf/1606.04934.pdf)
-    * [Improving Variational Auto-Encoders using Householder Flow](https://arxiv.org/pdf/1611.09630.pdf)
+* [Variational Inference with Normalizing Flows](https://arxiv.org/pdf/1505.05770.pdf)
+* [Improved Variational Inference with Inverse Autoregressive Flow](https://arxiv.org/pdf/1606.04934.pdf)
+* [Improving Variational Auto-Encoders using Householder Flow](https://arxiv.org/pdf/1611.09630.pdf)
 
 ### Installation
 The code was written for Python 3.6 or higher, and it has been tested with [PyTorch](http://pytorch.org/) 1.0.1. Training is only available with GPU. To get started, try to clone the repository
