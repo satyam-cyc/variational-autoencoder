@@ -44,4 +44,4 @@ def register_model_architecture(model_name, arch_name):
 for file in os.listdir(os.path.dirname(__file__)):
     if file.endswith('.py') and not file.startswith('_'):
         module = file[:file.find('.py')]
-        importlib.import_module('vae.models.' + module)
+        importlib.import_module('models.' + module)

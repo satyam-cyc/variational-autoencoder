@@ -13,7 +13,7 @@ cd variational-autoencoder
 ```
 
 ### Download
-The current code supports training a binarized version of MNIST, which can be downloaded with the following commands:
+The current code supports training a binarized version of MNIST, wich can be downloaded with the following commands:
 ```bash
 DATA_DIR=data/MNIST_static
 mkdir -p $DATA_DIR && cd $DATA_DIR

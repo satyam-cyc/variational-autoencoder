@@ -12,8 +12,8 @@ from tensorboardX import SummaryWriter
 from tqdm import tqdm
 from torch.utils.data import DataLoader, TensorDataset
 
-from vae import models, utils
-from vae.models import ARCH_MODEL_REGISTRY, ARCH_CONFIG_REGISTRY
+import models
+import utils
 
 
 def get_args():
@@ -26,7 +26,7 @@ def get_args():
     parser.add_argument('--num-workers', default=4, type=int, help='number of workers')
 
     # Add model arguments
-    parser.add_argument('--arch', default='vanilla', choices=ARCH_MODEL_REGISTRY.keys(), help='model architecture')
+    parser.add_argument('--arch', default='vanilla', choices=models.ARCH_MODEL_REGISTRY.keys(), help='model architecture')
 
     # Add optimization arguments
     parser.add_argument('--max-epoch', default=2000, type=int, help='force stop training at specified iteration')
@@ -51,14 +51,13 @@ def get_args():
     parser.add_argument('--no-log', action='store_true', help='don\'t save logs to file or Tensorboard directory')
     parser.add_argument('--log-dir', default='logs', help='directory to save logs')
     parser.add_argument('--log-interval', type=int, default=100, help='log every N steps')
-    args = parser.parse_args()
 
     # Parse twice as model arguments are not known the first time
     args, _ = parser.parse_known_args()
     model_parser = parser.add_argument_group(argument_default=argparse.SUPPRESS)
-    ARCH_MODEL_REGISTRY[args.arch].add_args(model_parser)
+    models.ARCH_MODEL_REGISTRY[args.arch].add_args(model_parser)
     args = parser.parse_args()
-    ARCH_CONFIG_REGISTRY[args.arch](args)
+    models.ARCH_CONFIG_REGISTRY[args.arch](args)
 
     # Modify arguments
     args.experiment = '-'.join([datetime.now().strftime('%b-%d-%H:%M:%S'), args.experiment])

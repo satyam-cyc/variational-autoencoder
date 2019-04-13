@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from vae.models import VAEModel, VAEEncoder, VAEDecoder
-from vae.models import register_model, register_model_architecture
+from models import VAEModel, VAEEncoder, VAEDecoder
+from models import register_model, register_model_architecture
 
 
 @register_model('iaf')
